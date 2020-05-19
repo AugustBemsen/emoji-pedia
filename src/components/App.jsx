@@ -1,7 +1,19 @@
 import React from "react";
 import Emoji from "./Emoji";
+import {emojipedia} from "../emojipedia";
 
-const emojiComponent = (emojis) => {
+const emojiComponent = (emojipedia) => {
+
+  return (
+  <Emoji
+      key={emojipedia.id}
+      emoji={emojipedia.emoji}
+      heading={emojipedia.name}
+      description={emojipedia.meaning}
+    
+  />
+  );
+
 
 }
 
@@ -11,7 +23,9 @@ const App = (props) => {
       <h1>
         <span>Emojipedia</span>
       </h1>
-      <Emoji /> 
+      <dl className="dictionary">
+      {emojipedia.map(emojiComponent)};
+      </dl>
     </div>
     );
 }
